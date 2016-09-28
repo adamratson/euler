@@ -1,7 +1,3 @@
-num = 600851475143
-x = 1
-y = 0
-
 def isprime(n):
     if n == 2:
         return True
@@ -24,11 +20,12 @@ def isprime(n):
 
     return True
 
-while x < num/3:
-    x += 1
-    if num % x == 0:
-        if isprime(x):
-            print(x)
-            if x > y:
-                y = x
-print(y)
+top = 2000000
+num = 1
+tot = 0
+while num < top:
+    num += 1
+    if isprime(num):
+        tot += num
+
+print(tot)
