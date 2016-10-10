@@ -24,17 +24,11 @@ highest = 0
 for num in grid:
     num = int(num)
     try:
-        up = num * int(grid[count]) * int(grid[count-20]) * int(grid[count-40]) * int(grid[count+-60])
+        up = num * int(grid[count-20]) * int(grid[count-40]) * int(grid[count-60])
     except IndexError:
         pass
     if up > highest:
         highest = up
-    try:
-        down = num * int(grid[count+20]) * int(grid[count+40]) * int(grid[count+60])
-    except IndexError:
-        pass
-    if down > highest:
-        highest = down
     try:
         left = num * int(grid[count-1]) * int(grid[count-2]) * int(grid[count-3])
     except IndexError:
@@ -42,17 +36,22 @@ for num in grid:
     if left > highest:
         highest = left
     try:
-        right = num * int(grid[count+1]) * int(grid[count+2]) * int(grid[count+3])
+        diagr = num * int(grid[count+21]) * int(grid[count+42]) * int(grid[count+63])
     except IndexError:
         pass
-    if right > highest:
-        highest = right
+    if diagr > highest:
+        highest = diagr
     try:
-        diag = num * int(grid[count+21]) * int(grid[count+42]) * int(grid[count+63])
+        diagl = num * int(grid[count+19]) * int(grid[count+38]) * int(grid[count+57])
     except IndexError:
         pass
-    if diag > highest:
-        highest = diag
+    if diagl > highest:
+        highest = diagl
+    if num == 3:
+        print(up)
+        print(left)
+        print(diagr)
+        print(diagl)
     count += 1
 
 print(highest)
